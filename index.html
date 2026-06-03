@@ -1,1 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOEWE 罗意威终极产品知识库 (内部机密)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .active-link { background-color: #f7f5f0; color: #78350f; font-weight: 600; border-left: 4px solid #78350f; }
+        .tab-active { border-bottom: 2px solid #78350f; color: #78350f; font-weight: bold; }
+    </style>
+</head>
+<body class="bg-[#fcfbfa] text-stone-800 font-sans antialiased">
 
+    <!-- 顶部导航 -->
+    <header class="bg-white border-b border-stone-200 sticky top-0 z-50 px-8 py-4 flex justify-between items-center shadow-sm">
+        <div class="flex items-center space-x-4">
+            <h1 class="text-xl font-serif tracking-widest font-bold text-stone-900">LOEWE PRODUCT ENCYCLOPEDIA</h1>
+        </div>
+        <span class="bg-red-50 text-red-800 text-xs px-3 py-1 rounded border border-red-200 font-bold tracking-wider">内部高度机密 / 禁止外传</span>
+    </header>
+
+    <div class="flex min-h-screen">
+        <!-- 左侧多级无限细分导航 -->
+        <aside class="w-80 bg-white border-r border-stone-200 p-4 shrink-0 overflow-y-auto max-h-[calc(100vh-65px)] sticky top-[65px]">
+            <h2 class="text-xs font-bold text-stone-400 uppercase tracking-wider mb-4 px-2">商品类目精准层级</h2>
+            
+            <div class="space-y-4">
+                <!-- 大类 1：皮具包袋 -->
+                <div>
+                    <div class="font-medium text-stone-900 px-2 py-2 bg-stone-100 rounded text-sm font-serif tracking-wide">💼 PIECE GOODS (皮具包袋)</div>
+                    <div class="ml-3 mt-2 border-l border-stone-200 pl-2 space-y-4 text-sm">
+                        
+                        <!-- Puzzle 子类 -->
+                        <div>
+                            <span class="text-stone-500 font-semibold block py-1">✦ Puzzle 几何包家族</span>
+                            <div class="ml-2 mt-1 space-y-1">
+                                <button onclick="showProduct('puzzle-classic-medium')" id="btn-puzzle-classic-medium" class="w-full text-left px-2 py-1.5 rounded text-stone-600 hover:bg-stone-50 transition text-xs block">
+                                    • Puzzle 经典小牛皮 (中号/经典款)
+                                </button>
+                                <button onclick="showProduct('puzzle-edge-small')" id="btn-puzzle-edge-small" class="w-full text-left px-2 py-1.5 rounded text-stone-600 hover:bg-stone-50 transition text-xs block">
+                                    • Puzzle Edge 粒面小牛皮 (小号)
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Hammock 子类 -->
+                        <div>
+                            <span class="text-stone-500 font-semibold block py-1">✦ Hammock 吊床包家族</span>
+                            <div class="ml-2 mt-1 space-y-1">
+                                <button onclick="showProduct('hammock-classic')" id="btn-hammock-classic" class="w-full text-left px-2 py-1.5 rounded text-stone-600 hover:bg-stone-50 transition text-xs block">
+                                    • Hammock 经典抽绳款
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 其他大类预留 -->
+                <div><div class="font-medium text-stone-400 px-2 py-1.5 bg-stone-50 rounded text-sm select-none">🧥 READY TO WEAR (成衣)</div></div>
+                <div><div class="font-medium text-stone-400 px-2 py-1.5 bg-stone-50 rounded text-sm select-none">🧣 ACCESSORIES (配饰/丝巾)</div></div>
+            </div>
+        </aside>
+
+        <!-- 右侧全信息超级看板 -->
+        <main class="flex-1 p-8">
+            <!-- 默认未选择状态 -->
+            <div id="welcome-view" class="h-full flex flex-col items-center justify-center text-stone-400 py-40">
+                <p class="font-serif text-lg tracking-wide">请在左侧点击具体产品，调取全球全量级商品绝密档案</p>
+            </div>
+
+            <!-- 全量信息视窗 -->
+            <div id="product-view" class="hidden space-y-8 animate-fade-in">
+                
+                <!-- 1. 基础信息大牌匾 -->
+                <div class="bg-white p-6 rounded-xl border border-stone-200 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span id="p-sku" class="text-xs bg-stone-900 text-stone-100 px-2 py-0.5 font-mono">SKU: --</span>
+                            <span id="p-launch" class="text-xs bg-amber-100 text-amber-900 px-2 py-0.5 font-bold">首发年份: --</span>
+                        </div>
+                        <h2 id="p-name" class="text-3xl font-serif text-stone-900 mt-2">产品全称</h2>
+                        <p id="p-engname" class="text-sm text-stone-400 font-mono mt-0.5">English Official Name</p>
+                    </div>
+                    <div class="text-left md:text-right border-l md:border-l-0 md:border-r-0 pl-4 md:pl-0">
+                        <span class="text-xs text-stone-400 uppercase tracking-widest block">产地与工坊</span>
+                        <span id="p-origin" class="font-serif font-bold text-stone-800 text-lg">Made in Spain</span>
+                    </div>
+                </div>
+
+                <!-- 2. 图片矩阵与设计规格 -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- 左侧：产品图片展示（支持本地图片路径或网络图片） -->
+                    <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-sm flex flex-col items-center justify-center">
+                        <span class="text-xs font-bold text-stone-400 mb-2 self-start">📷 官方标准视觉参考</span>
+                        <img id="p-image" src="" alt="产品图片" class="max-h-72 object-contain rounded-lg bg-stone-50 p-2 w-full">
+                        <p class="text-[11px] text-stone-400 mt-2 text-center">提示：本地使用时，可将图片放入同级文件夹，代码中写入相对路径即可显示</p>
+                    </div>
+                    <!-- 右侧：详尽技术参数、材料指标 -->
+                    <div class="lg:col-span-2 bg-white p-6 rounded-xl border border-stone-200 shadow-sm space-y-4">
+                        <h3 class="font-bold font-serif text-stone-900 border-b pb-2 text-sm uppercase tracking-wider text-amber-900">🔬 终极材质解构与保养工艺</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                            <div>
+                                <span class="font-bold block text-stone-500 mb-1">■ 外部及内衬面料构成：</span>
+                                <p id="p-material" class="text-stone-700 leading-relaxed bg-stone-50 p-2 rounded">暂无数据</p>
+                            </div>
+                            <div>
+                                <span class="font-bold block text-stone-500 mb-1">■ 五金件及微小细节工艺：</span>
+                                <p id="p-hardware" class="text-stone-700 leading-relaxed bg-stone-50 p-2 rounded">暂无数据</p>
+                            </div>
+                            <div class="md:col-span-2">
+                                <span class="font-bold block text-stone-500 mb-1">■ 官方SA级专业皮革护理指南：</span>
+                                <p id="p-care" class="text-stone-700 leading-relaxed bg-stone-50 p-2 rounded">暂无数据</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. 颜色分类全矩阵 -->
+                <div class="bg-white p-6 rounded-xl border border-stone-200 shadow-sm">
+                    <h3 class="font-bold font-serif text-stone-900 border-b pb-2 text-sm uppercase tracking-wider mb-4 text-amber-900">🎨 全球在售与经典颜色分类矩阵 (Color Palette)</h3>
+                    <div id="p-colors" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+                        <!-- 颜色卡片通过 JavaScript 动态渲染 -->
+                    </div>
+                </div>
+
+                <!-- 4. 历史沿革、重大改款与断代分析 -->
+                <div class="bg-white p-6 rounded-xl border border-stone-200 shadow-sm">
+                    <h3 class="font-bold font-serif text-stone-900 border-b pb-2 text-sm uppercase tracking-wider mb-3 text-amber-900">⏳ 产品诞生年份、版本更迭与改款细节 (History & Evolution)</h3>
+                    <div id="p-history" class="text-xs text-stone-600 leading-relaxed space-y-2 bg-amber-50/40 p-4 rounded-lg border border-amber-100">
+                        <!-- 动态载入历史年表 -->
+                    </div>
+                </div>
+
+                <!-- 5. 殿堂级中日英三语接待话术 -->
+                <div class="bg-white rounded-xl border border-stone-200 shadow-sm overflow-hidden">
+                    <div class="bg-stone-900 text-stone-200 px-6 py-3.5 font-serif font-medium text-sm tracking-widest flex justify-between items-center">
+                        <span>🗣 顶级奢侈品销售三语话术库 (TRILINGUAL MASTER SALES PRESENTATION)</span>
+                        <span class="text-xs bg-stone-800 text-stone-400 px-2 py-0.5 rounded">精确到每一个卖点</span>
+                    </div>
+                    
+                    <div class="divide-y divide-stone-200 text-xs md:text-sm">
+                        <!-- 中文 & 粤语 -->
+                        <div class="p-6 grid grid-cols-1 lg:grid-cols-4 gap-4 bg-stone-50/50">
+                            <div class="font-bold text-stone-800 flex flex-col justify-center">
+                                <span class="text-sm">🇨🇳 华语极致话术</span>
+                                <span class="text-xs text-stone-400 font-normal mt-0.5">(普通话标准话术 / 粤语同步)</span>
+                            </div>
+                            <div id="lang-zh" class="lg:col-span-3 text-stone-600 space-y-3 leading-relaxed"></div>
+                        </div>
+
+                        <!-- 日语 -->
+                        <div class="p-6 grid grid-cols-1 lg:grid-cols-4 gap-4">
+                            <div class="font-bold text-stone-800 flex flex-col justify-center">
+                                <span class="text-sm">🇯🇵 日本語最高接客</span>
+                                <span class="text-xs text-stone-400 font-normal mt-0.5">(百貨店・直営店レベルの敬語)</span>
+                            </div>
+                            <div id="lang-ja" class="lg:col-span-3 text-stone-700 space-y-3 font-medium tracking-wide leading-relaxed"></div>
+                        </div>
+
+                        <!-- 英语 -->
+                        <div class="p-6 grid grid-cols-1 lg:grid-cols-4 gap-4 bg-stone-50/50">
+                            <div class="font-bold text-stone-800 flex flex-col justify-center">
+                                <span class="text-sm">🇬🇧 Elite English Presentation</span>
+                                <span class="text-xs text-stone-400 font-normal mt-0.5">(Storytelling & Features)</span>
+                            </div>
+                            <div id="lang-en" class="lg:col-span-3 text-stone-600 space-y-3 leading-relaxed"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- 终极本地数据库 -->
+    <script>
+        const database = {
+            'puzzle-classic-medium': {
+                sku: '322.30.S20',
+                launch: '2015年春夏系列 (2015SS)',
+                name: 'Puzzle 经典小牛皮几何手袋 (中号)',
+                engname: 'Puzzle Bag in Classic Calfskin (Medium)',
+                origin: '西班牙马德里纯手工工坊 (Handcrafted in Madrid, Spain)',
+                image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=500&q=80', // 这里放图片链接。如果是本地图片，可以改成 "images/puzzle-classic.jpg"
+                material: '100% 顶级经典小牛皮 (Classic Calfskin)。选用欧洲顶级牧场小牛皮，皮质紧致无瑕。经过轻度苯胺涂层处理，保留了皮革最天然的微细毛孔，触感细腻平滑，带有温润的高级哑光光泽。内衬采用人字纹纯棉帆布。',
+                hardware: '搭配极高规格的钯金/阳极氧化金属配件。每一个拉链和金属扣环上均有精细激光雕刻的“LOEWE”意式字体。包身正面右上角采用高压高温盲压（Blind Embossing）标志性的四合一 Anagram 徽标。',
+                care: '避免在下雨天暴露。如果不慎沾水，应立即用浅色干净吸水布顺皮纹轻拭，切勿使用吹风机烘烤。每半年建议使用专柜指定乳液（如Collonil高级皮革乳）进行滋润，防止其干裂。',
+                colors: [
+                    { name: '经典黑 (Black)', hex: '#1a1a1a' },
+                    { name: '沙黄色 (Sand)', hex: '#c2b29c' },
+                    { name: '棕褐色 (Tan)', hex: '#a05a2c' },
+                    { name: '海港蓝 (Ocean Blue)', hex: '#2b4c7e' },
+                    { name: '拼色系 (多色选)', hex: 'linear-gradient(45deg, #a05a2c, #c2b29c, #1a1a1a)' }
+                ],
+                history: `
+                    <strong>【诞生背景】</strong> 2013年 Jonathan Anderson 入主罗意威担任创意总监，2014年设计出 Puzzle，并于 2015SS 秀场正式发布，彻底重塑了品牌形象。<br>
+                    <strong>【改款硬核对比】</strong> <br>
+                    • <b>2015-2020（初代纯经典版）：</b> 采用明线拼缝，边缘油边层层打磨，底部带有5个金属防磨铆钉（中号及大号独有），手柄皮质较硬硬挺。<br>
+                    • <b>2021年改版：</b> 品牌逐步调整了中号防磨钉的设计，并推出了更为随性的 Edge 版本（皮块边缘重叠缝制）。<br>
+                    • <b>注：</b> 经典款的52块皮拼接是“平缝明线”工艺，耗时约3天。
+                `,
+                zh: `
+                    <p><b>【核心卖点话术】</b> 您好，这款是 LOEWE 最具灵魂的代表作 Puzzle 中号。它是由西班牙老工匠用 52 块完全不同形状的皮革拼出来的。它最大的神功是‘可以像折纸一样完全压平’。中号的容量极其惊人，伞、微单相机都能装下。而且它有 5 种背法，拆掉肩带是极有质感的晚宴手拿包，装上可以斜挎或者单肩，买这一个包等于满足了您 5 个不同场合的搭配需求。</p>
+                    <p><b>【粤语高阶话术】</b> 靓姐/老细您好，呢款系我哋最经典嘅中号 Puzzle 几何包。佢系创意总监 Jonathan 入主品牌之后第一款爆品，最犀利嘅地方系由西班牙工匠全手工将 52 块皮革好似拼图咁缝埋一齐。佢不仅可以完全变平放落行李箱，仲有 5 种唔同孭法。中号容量最实用，平日常用嘅嘢全部放得晒，绝对系一件可以用好多年嘅艺术品。</p>
+                `,
+                ja: `
+                    <p><b>【ファーストアプローチ】</b> いらっしゃいませ。こちらはロエベの最も象徴的なアイコンである「パズルバッグ」のミディアムサイズでございます。クリエイティブ・ディレクターのジョナサン・アンダーソンが手掛けた初のITバッグで、スペインの熟練した職人が52個の異なる革のピースを手作業で緻密に組み合わせ、この独創的な幾何学的ラインを生み出しております。</p>
+                    <p><b>【機能性の提案】</b> 折り紙からインスピレーションを得ており、完全にフラットに折りたたむことが可能で、ご旅行の際の収納にも大変便利です。ハンドバッグ、ショルダー、クロスボディ、そしてクラッチバッグなど、合計5通りのスタイルでお使いいただけます。ミディアムサイズは容量も非常に豊かで、日常の必需品がすべて美しく収まります。</p>
+                `,
+                en: `
+                    <p><b>【Key Selling Points】</b> Welcome. This is the definitive LOEWE icon—the medium Puzzle bag. It was designed by Creative Director Jonathan Anderson as his debut piece. Crafted in Spain by our master artisans, it requires a precise jigsaw-like construction of 52 separate leather panels. </p>
+                    <p><b>【Versatility Focus】</b> The beauty of the Puzzle bag lies in its architectural flexibility—it can fold completely flat. It offers incredible versatility with five distinct ways to wear it: from a sharp handheld top-handle, to an effortless crossbody, or even a statement clutch for evening occasions. The medium size provides the perfect generous capacity for your ultimate daily luxury.</p>
+                `
+            },
+            'puzzle-edge-small': {
+                sku: 'A510P60X30',
+                launch: '2021年秋冬系列 (2021AW)',
+                name: 'Puzzle Edge 柔软粒面小牛皮手袋 (小号)',
+                engname: 'Puzzle Edge Bag in Soft Grained Calfskin (Small)',
+                origin: '西班牙马德里纯手工工坊 (Handcrafted in Spain)',
+                image: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=500&q=80',
+                material: '100% 柔软粒面小牛皮 (Soft Grained Calfskin)。表面自带天然的荔枝纹路，触感更加丰满且非常柔韧。相比于经典平滑皮，粒面皮具备天然的“抗造”属性。内衬升级为同色系全皮内衬或高端帆布。',
+                hardware: '硬件表面采用阳极氧化工艺，耐磨耐汗。Edge 版本最明显的五金特征是：肩带扣环和皮包连接处采用了重叠式的皮革包裹包裹，金属件更加内敛隐藏。',
+                care: '抗划伤能力极强，指甲或钥匙不小心划到通常不会留下痕迹。防泼水性能优于经典款，若淋雨只需用湿布擦拭后阴干即可。',
+                colors: [
+                    { name: '燕麦色 (Oatmeal)', hex: '#ebe5db' },
+                    { name: '向日葵黄 (Yellow)', hex: '#f4c430' },
+                    { name: '鳄梨绿 (Avocado Green)', hex: '#556b2f' },
+                    { name: '焦糖色 (Toffee)', hex: '#af6e4d' }
+                ],
+                history: `
+                    <strong>【改款意义与断代】</strong> 2021年为了让经典 Puzzle 更加年轻化、随性化，Jonathan Anderson 推出了 Edge 版本。<br>
+                    <strong>【Edge 与 Classic 初代的核心区别】</strong><br>
+                    1. <b>缝线工艺变革：</b> 初代是拼块与拼块之间“平缝”，有明显的黑油边阻隔。Edge 版则是皮块“重叠缝合”，取消了皮块之间的大量硬质油边，整体更加松弛、圆润。<br>
+                    2. <b>手柄改动：</b> Edge 的提手部分多了一圈精细的编织或包裹感，手感比经典款更软。
+                `,
+                zh: `
+                    <p><b>【核心卖点话术】</b> 您好，如果您想要一只每天随便背、不用小心翼翼伺候的奢侈品包，我首推这只小号的 Puzzle Edge。它用的是粒面小牛皮，自带荔枝纹，指甲刮、钥匙划都不会留痕迹。Edge 版本去掉了硬硬的油边，采用重叠缝制，整体更软塌、更松弛，特别符合现在的低调奢华风。小号的尺寸是针对我们亚洲女生身材微调的，上身绝对不会压个子。</p>
+                `,
+                ja: `
+                    <p><b>【特徴と素材のご提案】</b> こちらの「パズル エッジ」のスモールサイズは、ソフトグレインカーフスキンを使用しており、大変柔らかく、かつ傷や汚れに対して非常に高い耐久性を持っております。従来のクラシックモデルと違い、革の端を重ね合わせて縫製する技法を用いており、よりソフトでモダンなシルエットが楽しめます。</p>
+                `,
+                en: `
+                    <p><b>【Key Selling Points】</b> This is the Puzzle Edge in the small size, crafted from our signature soft grained calfskin. The beautiful grain texture provides maximum resistance against scratches and daily wear, making it an ideal choice for an everyday bag. The Edge version features overlapped leather panels which offers a softer, more fluid architectural aesthetic.</p>
+                `
+            }
+        };
+
+        function showProduct(productId) {
+            const product = database[productId];
+            if (!product) return;
+
+            // 1. 显示主看板
+            document.getElementById('welcome-view').classList.add('hidden');
+            document.getElementById('product-view').classList.remove('hidden');
+
+            // 2. 注入核心指标
+            document.getElementById('p-sku').innerText = `SKU: ${product.sku}`;
+            document.getElementById('p-launch').innerText = `首发年份: ${product.launch}`;
+            document.getElementById('p-name').innerText = product.name;
+            document.getElementById('p-engname').innerText = product.engname;
+            document.getElementById('p-origin').innerText = product.origin;
+            document.getElementById('p-image').src = product.image;
+            document.getElementById('p-material').innerHTML = product.material;
+            document.getElementById('p-hardware').innerHTML = product.hardware;
+            document.getElementById('p-care').innerHTML = product.care;
+            document.getElementById('p-history').innerHTML = product.history;
+            document.getElementById('lang-zh').innerHTML = product.zh;
+            document.getElementById('lang-ja').innerHTML = product.ja;
+            document.getElementById('lang-en').innerHTML = product.en;
+
+            // 3. 动态渲染颜色矩阵
+            const colorContainer = document.getElementById('p-colors');
+            colorContainer.innerHTML = ''; // 清空上一款
+            product.colors.forEach(col => {
+                const card = document.createElement('div');
+                card.className = 'border border-stone-200 p-2 rounded-lg bg-stone-50 flex items-center space-x-2 shadow-sm';
+                
+                const indicator = document.createElement('div');
+                indicator.className = 'w-4 h-4 rounded-full border border-stone-300 shrink-0';
+                indicator.style.background = col.hex;
+
+                const nameLabel = document.createElement('span');
+                nameLabel.className = 'text-[11px] font-medium text-stone-700 truncate';
+                nameLabel.innerText = col.name;
+
+                card.appendChild(indicator);
+                card.appendChild(nameLabel);
+                colorContainer.appendChild(card);
+            });
+
+            // 4. 左侧高亮
+            document.querySelectorAll('aside button').forEach(btn => btn.classList.remove('active-link'));
+            document.getElementById('btn-' + productId).classList.add('active-link');
+            
+            // 滚动到顶部
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
