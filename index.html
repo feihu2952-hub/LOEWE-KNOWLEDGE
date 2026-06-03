@@ -3,169 +3,352 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOEWE 罗意威全量内部知识库</title>
+    <title>LOEWE 罗意威全量产品深度知识库 (内部实战版)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .active-link { background-color: #f7f5f0; color: #78350f; font-weight: 600; border-left: 4px solid #78350f; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #c5bfb6; border-radius: 3px; }
     </style>
 </head>
 <body class="bg-[#fcfbfa] text-stone-800 font-sans antialiased">
 
+    <!-- 顶栏 -->
     <header class="bg-white border-b border-stone-200 sticky top-0 z-50 px-8 py-4 flex justify-between items-center shadow-sm">
-        <h1 class="text-xl font-serif tracking-widest font-bold text-stone-900">LOEWE OFFICIAL KNOWLEDGE BASE</h1>
-        <span class="bg-stone-100 text-stone-700 text-xs px-3 py-1 rounded">个人工作学习库 (个人专用)</span>
+        <div class="flex items-center space-x-3">
+            <h1 class="text-lg font-serif tracking-widest font-bold text-stone-900">LOEWE MASTER ENCYCLOPEDIA</h1>
+            <span class="text-[10px] bg-amber-100 text-amber-900 px-2 py-0.5 rounded font-mono font-bold">v2026.06</span>
+        </div>
+        <span class="bg-stone-100 text-stone-600 text-xs px-3 py-1 rounded font-medium">零售团队专属内部备战库</span>
     </header>
 
     <div class="flex min-h-screen">
-        <!-- 左侧：对照官网(Loewe.com)重构的庞大分类树 -->
-        <aside class="w-80 bg-white border-r border-stone-200 p-4 shrink-0 overflow-y-auto max-h-[calc(100vh-65px)] sticky top-[65px]">
-            <h2 class="text-xs font-bold text-stone-400 uppercase tracking-wider mb-4 px-2">官网标准类目层级</h2>
+        <!-- 左侧：超级细分的多级导航栏 -->
+        <aside class="w-80 bg-white border-r border-stone-200 p-4 shrink-0 overflow-y-auto h-[calc(100vh-65px)] sticky top-[65px]">
+            <h2 class="text-[11px] font-bold text-stone-400 uppercase tracking-wider mb-4 px-2">LOEWE 全品类结构树</h2>
             
             <div class="space-y-6">
-                <!-- 分类 一：BAQS & LEATHER GOODS (包袋家族) -->
+                <!-- 类目 1：🎯 ICONIC BAGS (殿堂级手袋家族) -->
                 <div>
-                    <div class="font-bold text-stone-900 px-2 py-1.5 bg-stone-100 rounded text-xs tracking-wider">👜 BAGS & LEATHER GOODS</div>
-                    <div class="ml-2 mt-2 border-l border-stone-200 pl-2 space-y-3 text-xs">
+                    <div class="font-bold text-stone-900 px-2 py-2 bg-stone-100 rounded text-xs tracking-wider font-serif">👜 BAGS & LEATHER GOODS</div>
+                    <div class="ml-2 mt-2 border-l border-stone-200 pl-2 space-y-4 text-xs">
                         
-                        <!-- 1. Puzzle 家族 -->
+                        <!-- Puzzle -->
                         <div>
-                            <span class="text-stone-500 font-bold block py-0.5">✦ Puzzle Family</span>
+                            <span class="text-stone-500 font-bold block pb-1">✦ Puzzle 几何家族</span>
                             <div class="ml-2 space-y-1">
-                                <button onclick="showProduct('puzzle-classic')" id="btn-puzzle-classic" class="w-full text-left px-2 py-1 rounded hover:bg-stone-50 text-stone-600 block">• Puzzle Classic (经典款)</button>
-                                <button onclick="showProduct('puzzle-edge')" id="btn-puzzle-edge" class="w-full text-left px-2 py-1 rounded hover:bg-stone-50 text-stone-600 block">• Puzzle Edge (现代版)</button>
-                                <button onclick="showProduct('puzzle-fold')" id="btn-puzzle-fold" class="w-full text-left px-2 py-1 rounded hover:bg-stone-50 text-stone-400 block" disabled>• Puzzle Fold Tote (待补充)</button>
+                                <button onclick="showProduct('puzzle-classic')" id="btn-puzzle-classic" class="w-full text-left px-2 py-1.5 rounded hover:bg-stone-50 text-stone-600 block">• Puzzle Classic 经典拼缝款</button>
+                                <button onclick="showProduct('puzzle-edge')" id="btn-puzzle-edge" class="w-full text-left px-2 py-1.5 rounded hover:bg-stone-50 text-stone-600 block">• Puzzle Edge 现代重叠缝</button>
+                                <button onclick="showProduct('puzzle-fold')" id="btn-puzzle-fold" class="w-full text-left px-2 py-1.5 rounded hover:bg-stone-50 text-stone-600 block">• Puzzle Fold 极致折叠托特</button>
                             </div>
                         </div>
 
-                        <!-- 2. Hammock 家族 -->
+                        <!-- Hammock -->
                         <div>
-                            <span class="text-stone-500 font-bold block py-0.5">✦ Hammock Family</span>
+                            <span class="text-stone-500 font-bold block pb-1">✦ Hammock 吊床家族</span>
                             <div class="ml-2 space-y-1">
-                                <button onclick="showProduct('hammock-drawstring')" id="btn-hammock-drawstring" class="w-full text-left px-2 py-1 rounded hover:bg-stone-50 text-stone-600 block">• Hammock Drawstring (抽绳款)</button>
-                                <button onclick="showProduct('hammock-nugget')" id="btn-hammock-nugget" class="w-full text-left px-2 py-1 rounded hover:bg-stone-50 text-stone-600 block">• Hammock Nugget (金块包)</button>
+                                <button onclick="showProduct('hammock-drawstring')" id="btn-hammock-drawstring" class="w-full text-left px-2 py-1.5 rounded hover:bg-stone-50 text-stone-600 block">• Hammock 经典抽绳版</button>
+                                <button onclick="showProduct('hammock-nugget')" id="btn-hammock-nugget" class="w-full text-left px-2 py-1.5 rounded hover:bg-stone-50 text-stone-600 block">• Hammock Nugget 块金包</button>
                             </div>
                         </div>
 
-                        <!-- 3. Flamenco 家族 (新增) -->
+                        <!-- Flamenco -->
                         <div>
-                            <span class="text-stone-500 font-bold block py-0.5">✦ Flamenco Family</span>
+                            <span class="text-stone-500 font-bold block pb-1">✦ Flamenco 福袋家族</span>
                             <div class="ml-2 space-y-1">
-                                <button onclick="showProduct('flamenco-purse')" id="btn-flamenco-purse" class="w-full text-left px-2 py-1 rounded hover:bg-stone-50 text-stone-400 block" disabled>• Flamenco Purse (褶皱包/待补)</button>
-                                <button onclick="showProduct('flamenco-clutch')" id="btn-flamenco-clutch" class="w-full text-left px-2 py-1 rounded hover:bg-stone-50 text-stone-400 block" disabled>• Flamenco Clutch (手拿包/待补)</button>
+                                <button onclick="showProduct('flamenco-purse')" id="btn-flamenco-purse" class="w-full text-left px-2 py-1.5 rounded hover:bg-stone-50 text-stone-600 block">• Flamenco Purse 甜甜圈褶皱款</button>
+                                <button onclick="showProduct('flamenco-clutch')" id="btn-flamenco-clutch" class="w-full text-left px-2 py-1.5 rounded hover:bg-stone-50 text-stone-600 block">• Flamenco Clutch 经典手拿款</button>
                             </div>
                         </div>
 
-                        <!-- 4. Gate 家族 (新增) -->
+                        <!-- Gate -->
                         <div>
-                            <span class="text-stone-500 font-bold block py-0.5">✦ Gate Family</span>
+                            <span class="text-stone-500 font-bold block pb-1">✦ Gate 马鞍家族</span>
                             <div class="ml-2 space-y-1">
-                                <button onclick="showProduct('gate-dual')" id="btn-gate-dual" class="w-full text-left px-2 py-1 rounded hover:bg-stone-50 text-stone-400 block" disabled>• Gate Dual (马鞍包/待补)</button>
+                                <button onclick="showProduct('gate-dual')" id="btn-gate-dual" class="w-full text-left px-2 py-1.5 rounded hover:bg-stone-50 text-stone-600 block">• Gate Dual 经典皮革结马鞍</button>
                             </div>
                         </div>
 
                     </div>
                 </div>
 
-                <!-- 分类 二：READY TO WEAR (高端成衣) -->
+                <!-- 类目 2：🧥 READY TO WEAR (成衣系列) -->
                 <div>
-                    <div class="font-bold text-stone-900 px-2 py-1.5 bg-stone-100 rounded text-xs tracking-wider">🧥 READY TO WEAR (成衣)</div>
-                    <div class="ml-2 mt-2 border-l border-stone-200 pl-2 space-y-1 text-xs text-stone-400">
-                        <p class="px-2 py-1">• Outerwear & Coats (大衣/外套)</p>
-                        <p class="px-2 py-1">• Leather Jackets (奢华皮衣)</p>
-                        <p class="px-2 py-1">• Knitwear (高端针织)</p>
+                    <div class="font-bold text-stone-900 px-2 py-2 bg-stone-100 rounded text-xs tracking-wider font-serif">🧥 READY TO WEAR</div>
+                    <div class="ml-2 mt-2 border-l border-stone-200 pl-2 space-y-2 text-xs">
+                        <button onclick="showProduct('rtw-leather')" id="btn-rtw-leather" class="w-full text-left px-2 py-1.5 rounded hover:bg-stone-50 text-stone-600 block">• Leather Jackets 纳帕奢华皮衣</button>
+                        <button onclick="showProduct('rtw-coat')" id="btn-rtw-coat" class="w-full text-left px-2 py-1.5 rounded hover:bg-stone-50 text-stone-600 block">• Anagram Coats 双面羊绒大衣</button>
                     </div>
                 </div>
 
-                <!-- 分类 三：SHOES & ACCESSORIES (鞋履与配饰) -->
+                <!-- 类目 3：👟 SHOES & ACCESSORIES (鞋履与小皮件) -->
                 <div>
-                    <div class="font-bold text-stone-900 px-2 py-1.5 bg-stone-100 rounded text-xs tracking-wider">👟 SHOES & ACCESSORIES</div>
-                    <div class="ml-2 mt-2 border-l border-stone-200 pl-2 space-y-1 text-xs text-stone-400">
-                        <p class="px-2 py-1">• Luxury Sneakers (运动鞋)</p>
-                        <p class="px-2 py-1">• Anagram Belts (经典皮带)</p>
-                        <p class="px-2 py-1">• Wallets & Cardholders (小皮件/钱包)</p>
+                    <div class="font-bold text-stone-900 px-2 py-2 bg-stone-100 rounded text-xs tracking-wider font-serif">👟 SHOES & ACCESSORIES</div>
+                    <div class="ml-2 mt-2 border-l border-stone-200 pl-2 space-y-2 text-xs">
+                        <button onclick="showProduct('shoes-sneaker')" id="btn-shoes-sneaker" class="w-full text-left px-2 py-1.5 rounded hover:bg-stone-50 text-stone-600 block">• Flow Runner 复古波鞋</button>
+                        <button onclick="showProduct('acc-belt')" id="btn-acc-belt" class="w-full text-left px-2 py-1.5 rounded hover:bg-stone-50 text-stone-600 block">• Anagram Belt 经典徽标皮带</button>
                     </div>
                 </div>
             </div>
         </aside>
 
-        <!-- 右侧：全量信息展示 -->
-        <main class="flex-1 p-8">
-            <div id="welcome-view" class="h-full flex flex-col items-center justify-center text-stone-400 py-40">
-                <p class="font-serif text-base tracking-wide">请在左侧点击具体在售产品，调取深度产品档案</p>
+        <!-- 右侧：全量信息展示看板 -->
+        <main class="flex-1 p-8 overflow-y-auto h-[calc(100vh-65px)]">
+            <!-- 初始状态 -->
+            <div id="welcome-view" class="h-full flex flex-col items-center justify-center text-stone-400 py-32">
+                <svg class="w-12 h-12 text-stone-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13c1.168-.766 2.832-1.253 4.5-1.253s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13c-1.168-.766-2.832-1.253-4.5-1.253s-3.332.477-4.5 1.253"></path></svg>
+                <p class="font-serif text-sm tracking-wide">请在左侧目录选择商品，调取 SA 实战技术档案</p>
             </div>
 
-            <div id="product-view" class="hidden space-y-8">
-                <!-- 1. 抬头 -->
-                <div class="bg-white p-6 rounded-xl border border-stone-200 shadow-sm flex justify-between items-center">
+            <!-- 数据展示视窗 -->
+            <div id="product-view" class="hidden space-y-6">
+                <!-- 头部基础牌匾 -->
+                <div class="bg-white p-6 rounded-xl border border-stone-200 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                     <div>
                         <div class="flex items-center gap-2">
-                            <span id="p-sku" class="text-xs bg-stone-900 text-stone-100 px-2 py-0.5 font-mono">SKU</span>
-                            <span id="p-launch" class="text-xs bg-amber-100 text-amber-900 px-2 py-0.5 font-bold">Launch</span>
+                            <span id="p-sku" class="text-[10px] bg-stone-900 text-stone-100 px-2 py-0.5 font-mono">SKU: --</span>
+                            <span id="p-launch" class="text-[10px] bg-amber-100 text-amber-900 px-2 py-0.5 font-bold">首发: --</span>
                         </div>
-                        <h2 id="p-name" class="text-2xl font-serif text-stone-900 mt-2">产品全称</h2>
+                        <h2 id="p-name" class="text-2xl font-serif text-stone-900 mt-2">产品中文全称</h2>
+                        <p id="p-engname" class="text-xs text-stone-400 font-mono mt-0.5">Official English Name</p>
                     </div>
-                    <span id="p-origin" class="font-serif font-bold text-stone-600 text-sm">Made in Spain</span>
+                    <div class="text-left sm:text-right border-l sm:border-l-0 pl-4 sm:pl-0">
+                        <span class="text-[10px] text-stone-400 uppercase tracking-widest block">工坊产地</span>
+                        <span id="p-origin" class="font-serif font-bold text-stone-700 text-sm">Made in Spain</span>
+                    </div>
                 </div>
 
-                <!-- 2. 图片及材质 -->
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-sm flex flex-col items-center">
-                        <!-- 图片展示区 -->
-                        <img id="p-image" src="" alt="LOEWE" class="max-h-72 object-contain rounded-lg bg-stone-50 p-2 w-full">
+                <!-- 视觉图与材质技术解构 -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-sm flex flex-col items-center justify-center min-h-[320px]">
+                        <span class="text-[10px] font-bold text-stone-400 mb-2 self-start">📷 官方高保真参考图</span>
+                        <img id="p-image" src="" alt="LOEWE" class="max-h-64 object-contain rounded-lg w-full">
                     </div>
                     <div class="lg:col-span-2 bg-white p-6 rounded-xl border border-stone-200 shadow-sm space-y-4 text-xs">
-                        <h3 class="font-bold border-b pb-2 text-amber-900">🔬 官网材质标准与 SA 保养指南</h3>
-                        <p><b>外部及内衬：</b> <span id="p-material" class="text-stone-600"></span></p>
-                        <p><b>五金工艺：</b> <span id="p-hardware" class="text-stone-600"></span></p>
-                        <p><b>SA护理要点：</b> <span id="p-care" class="text-stone-600"></span></p>
+                        <h3 class="font-bold font-serif text-amber-900 border-b pb-2 text-xs uppercase tracking-wider">🔬 皮革面料工艺 & 专柜护理指南</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <span class="font-bold text-stone-500 block mb-1">■ 核心材质成分 (Material)：</span>
+                                <p id="p-material" class="text-stone-600 bg-stone-50 p-2 rounded leading-relaxed"></p>
+                            </div>
+                            <div>
+                                <span class="font-bold text-stone-500 block mb-1">■ 细节及五金 (Details)：</span>
+                                <p id="p-hardware" class="text-stone-600 bg-stone-50 p-2 rounded leading-relaxed"></p>
+                            </div>
+                            <div class="md:col-span-2">
+                                <span class="font-bold text-stone-500 block mb-1">■ 断代沿革与改款分析 (Evolution)：</span>
+                                <p id="p-history" class="text-stone-600 bg-amber-50/40 border border-amber-100 p-2 rounded leading-relaxed"></p>
+                            </div>
+                            <div class="md:col-span-2">
+                                <span class="font-bold text-stone-500 block mb-1">■ SA 级标准皮革保养规范 (Care Guide)：</span>
+                                <p id="p-care" class="text-stone-600 bg-stone-50 p-2 rounded leading-relaxed"></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- 3. 颜色分类 -->
+                <!-- 在售颜色矩阵 -->
                 <div class="bg-white p-6 rounded-xl border border-stone-200 shadow-sm">
-                    <h3 class="font-bold text-xs uppercase tracking-wider mb-4 text-amber-900">🎨 在售官方颜色矩阵</h3>
-                    <div id="p-colors" class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-3 text-xs"></div>
+                    <h3 class="font-bold text-xs font-serif text-amber-900 border-b pb-2 mb-4 uppercase tracking-wider">🎨 专柜全球标准颜色矩阵 (Color Palette)</h3>
+                    <div id="p-colors" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 text-xs"></div>
                 </div>
 
-                <!-- 4. 三语高级销售话术 -->
+                <!-- 三语实战顶级接待话术 -->
                 <div class="bg-white rounded-xl border border-stone-200 shadow-sm overflow-hidden text-xs">
-                    <div class="bg-stone-900 text-stone-200 px-6 py-3 font-medium tracking-widest">🗣 三语场景接待与卖点 storytelling 话术</div>
+                    <div class="bg-stone-900 text-stone-200 px-6 py-3.5 font-serif font-medium tracking-widest flex justify-between items-center">
+                        <span>🗣 顶级接待与 STORYTELLING 三语话术库</span>
+                    </div>
                     <div class="divide-y divide-stone-200">
-                        <div class="p-4 grid grid-cols-1 lg:grid-cols-4 gap-2"><div class="font-bold">🇨🇳 中文/粤语</div><div id="lang-zh" class="lg:col-span-3 text-stone-600 space-y-2"></div></div>
-                        <div class="p-4 grid grid-cols-1 lg:grid-cols-4 gap-2"><div class="font-bold">🇯🇵 日本語接客</div><div id="lang-ja" class="lg:col-span-3 text-stone-700 font-medium"></div></div>
-                        <div class="p-4 grid grid-cols-1 lg:grid-cols-4 gap-2"><div class="font-bold">🇬🇧 English</div><div id="lang-en" class="lg:col-span-3 text-stone-600"></div></div>
+                        <!-- 中文 & 粤语 -->
+                        <div class="p-5 grid grid-cols-1 lg:grid-cols-4 gap-4 bg-stone-50/50">
+                            <div class="font-bold text-stone-800"><span class="text-xs">🇨🇳 华语极致说辞</span><br><span class="text-[10px] text-stone-400 font-normal">(普通话 / 粤语双声道)</span></div>
+                            <div id="lang-zh" class="lg:col-span-3 text-stone-600 space-y-2 leading-relaxed"></div>
+                        </div>
+                        <!-- 日语 -->
+                        <div class="p-5 grid grid-cols-1 lg:grid-cols-4 gap-4">
+                            <div class="font-bold text-stone-800"><span class="text-xs">🇯🇵 日本語最高接客</span><br><span class="text-[10px] text-stone-400 font-normal">(百貨店・直営店基準)</span></div>
+                            <div id="lang-ja" class="lg:col-span-3 text-stone-700 space-y-2 leading-relaxed font-medium"></div>
+                        </div>
+                        <!-- 英语 -->
+                        <div class="p-5 grid grid-cols-1 lg:grid-cols-4 gap-4 bg-stone-50/50">
+                            <div class="font-bold text-stone-800"><span class="text-xs">🇬🇧 Global English</span></div>
+                            <div id="lang-en" class="lg:col-span-3 text-stone-600 space-y-2 leading-relaxed"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </main>
     </div>
 
+    <!-- 核心数据库脚本 -->
     <script>
-        // 核心数据库（你可以仿照这里，通过复制官网的图片链接和颜色随时扩充它）
         const database = {
             'puzzle-classic': {
-                sku: '322.30.S20', launch: '2015SS', name: 'Puzzle Medium in Classic Calfskin',
-                image: 'https://www.loewe.com/dw/image/v2/BBKV_PRD/on/demandware.static/-/Sites-loewe-master-catalog/default/dw11dfba64/images/A510P60X30/0010531531_01.jpg', // 示例官方图片链接
-                material: '100% 经典小牛皮 (Classic Calfskin)，内衬为人字纹纯棉帆布。',
-                hardware: '边缘手工黑油边，盲压 Anagram 徽标。', care: '避免雨淋，沾水需即时用软布吸干。',
-                colors: [{ name: 'Tan 棕褐色', hex: '#a05a2c' }, { name: 'Black 黑色', hex: '#1a1a1a' }],
-                zh: '52块皮革几何剪裁，五种背法。', ja: '職人の手作業による52個のパーツ...', en: 'Iconic cuboid shape...'
+                sku: '322.30.S20', launch: '2015SS', name: 'Puzzle 经典小牛皮手袋 (中号/经典拼缝)', engname: 'Puzzle Bag in Classic Calfskin (Medium)',
+                origin: '西班牙马德里纯手工工坊', image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=500&q=80',
+                material: '100% 经典小牛皮 (Classic Calfskin)。选用欧洲顶级牧场小牛皮，皮质紧致紧密。经过轻度苯胺涂层处理，保留了皮革最天然的微细毛孔，带有温润的高级哑光光泽。内衬采用人字纹纯棉帆布。',
+                hardware: '高规格钯金金属配件。每一个拉链和金属扣环上均有精细激光雕刻的“LOEWE”意式字体。包身正面右上角采用高压高温盲压经典四合一 Anagram 徽标。',
+                history: '2014年由 Jonathan Anderson 设计并于 2015SS 发布。经典款最核心的工艺在于 52 块皮拼块之间采用“平缝明线”工艺，边缘油边由工匠手工作为阻隔，耗时极长，中号及大号底部带5个防磨铆钉。',
+                care: '避免在下雨天暴露。如果不慎沾水，应立即用浅色干净吸水布顺皮纹轻拭。每半年建议使用专柜指定乳液进行滋润，防止其干裂。',
+                colors: [{ name: '棕褐色 (Tan)', hex: '#a05a2c' }, { name: '沙黄色 (Sand)', hex: '#c2b29c' }, { name: '曜石黑 (Black)', hex: '#1a1a1a' }],
+                zh: `<p><b>【普通话】</b>您好，这款是 LOEWE 最具灵魂的代表作 Puzzle 中号。它是由西班牙老工匠用 52 块完全不同形状的皮革拼出来的。它最大的亮点是“可以像折纸一样完全压平”。中号的容量极其惊人，伞、微单相机都能装下。而且它有 5 种背法，拆掉肩带是手拿包，装上可以斜挎或者单肩，买这一个包等于满足了您 5 个不同场合的搭配需求。</p>
+                     <p><b>【粤语】</b>靓姐您好，呢款系我哋最经典嘅中号 Puzzle 几何包。佢最犀利嘅地方系由西班牙工匠全手工将 52 块皮革好似拼图咁缝埋一齐。佢不仅可以完全变平放落行李箱，仲有 5 种唔同孭法。中号容量最实用，平日常用嘅嘢全部放得晒，绝对系一件可以用好多年嘅艺术品。</p>`,
+                ja: `<p><b>【アプローチ】</b>いらっしゃいませ。こちらはロエベの最も象徴的なアイコンである「パズルバッグ」のミディアムサイズでございます。熟練した職人が52個の異なる革のピースを手作業で緻密に組み合わせ、この独創的な幾何学的ラインを生み出しております。</p>
+                     <p><b>【機能性】</b>折り紙からインスピレーションを得ており、完全にフラットに折りたたむことが可能でございます。ハンドバッグ、ショルダー、クロスボディ、そしてクラッチバッグなど、合計5通りのスタイルでお使いいただけます。</p>`,
+                en: `<p>Welcome. This is the definitive LOEWE icon—the medium Puzzle bag. Handcrafted in Spain by our master artisans, it requires a precise jigsaw-like construction of 52 separate leather panels. The beauty of the Puzzle bag lies in its architectural flexibility—it can fold completely flat and offers five distinct ways to wear it.</p>`
+            },
+            'puzzle-edge': {
+                sku: 'A510P60X30', launch: '2021AW', name: 'Puzzle Edge 柔软粒面小牛皮手袋 (小号/现代版)', engname: 'Puzzle Edge Bag in Soft Grained Calfskin (Small)',
+                origin: '西班牙手工工坊', image: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=500&q=80',
+                material: '100% 柔软粒面小牛皮 (Soft Grained Calfskin)。表面自带天然的荔枝纹路，触感更加丰满且非常柔韧。相比于经典平滑皮，粒面皮具备天然的“抗造”属性。',
+                hardware: '硬件表面采用阳极氧化工艺，耐磨耐汗。Edge 版本最明显的五金特征是：肩带扣环和皮包连接处采用了重叠式的皮革包裹，金属件更加内敛隐藏。',
+                history: '2021年为了让经典 Puzzle 更加年轻随性而推出。Edge 版取消了皮块之间的硬质黑油边阻隔，直接将皮块进行“重叠边缘缝合”，整体视觉更加圆润、具有现代感。',
+                care: '抗划伤能力极强，指甲或钥匙不小心划到通常不会留下痕迹。防泼水性能优于经典款，若淋雨只需用湿布擦拭后阴干即可。',
+                colors: [{ name: '燕麦色 (Oatmeal)', hex: '#ebe5db' }, { name: '焦糖色 (Toffee)', hex: '#af6e4d' }],
+                zh: `<p><b>【普通话】</b>您好，如果您想要一只每天随便背、不用小心翼翼伺候的奢侈品包，我首推这只小号的 Puzzle Edge。它用的是粒面小牛皮，自带荔枝纹，指甲刮、钥匙划都不会留痕迹。Edge 版本去掉了硬硬的油边，采用重叠缝制，整体更软塌、更松弛，特别符合现在的低调奢华风。</p>`,
+                ja: `<p><b>【素材提案】</b>こちらの「パズル エッジ」スモールサイズは、ソフトグレインカーフスキンを使用しており、大変柔らかく、かつ傷や汚れに対して非常に高い耐久性を持っております。革の端を重ね合わせて縫製する技法を用いており、よりソフトでモダンなシルエットが楽しめます。</p>`,
+                en: `<p>This is the Puzzle Edge in the small size, crafted from our signature soft grained calfskin. The beautiful grain texture provides maximum resistance against scratches and daily wear, making it an ideal choice for an everyday luxury bag.</p>`
+            },
+            'puzzle-fold': {
+                sku: 'A779Q04X01', launch: '2023PF', name: 'Puzzle Fold 超级折叠皮革托特包 (中号)', engname: 'Puzzle Fold Tote in Shiny Calfskin (Medium)',
+                origin: '西班牙加泰罗尼亚工坊', image: 'https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&w=500&q=80',
+                material: '100% 亮面小牛皮 (Shiny Calfskin)。皮质极其轻薄但具有极高的韧性，内衬为绒面革（Suede），提供极度奢华的内部触感。',
+                hardware: '极致的极简主义，全身无外部可见金属件。仅在包身烫金低调显示“LOEWE”字样。',
+                history: '2023年早秋推出，巧妙地将 Puzzle 家族的几何线条与原品牌经典折叠托特（Origami Tote）完美结合。可以通过极为神奇的几何折叠，一秒从一个扁平的正方形方块变成一个立体大容量托特。',
+                care: '由于皮质轻薄且需要经常折叠，折痕处应避免硬物重压。建议长期不用时将其展平存放，或塞入防尘纸。',
+                colors: [{ name: '深海蓝 (Navy)', hex: '#1e293b' }, { name: '勃艮第红 (Burgundy)', hex: '#4c1d95' }],
+                zh: `<p><b>【普通话】</b>这款 Puzzle Fold 是我们这两年的爆款，专为高级通勤和商旅设计的。它把建筑几何线条用在了托特包上。最神奇的是，它可以通过简单的两步，完全折叠成一个扁平的方块，放进行李箱一点都不占地方。用的是亮面小牛皮，自重非常轻，上班装电脑、出差装衣物都极其优雅。</p>`,
+                ja: `<p><b>【実用性の提案】</b>2023年に登場して以来、大変な反響をいただいている「パズル フォールド トート」でございます。幾何学的なラインを取り入れることで、わずか数秒で完全にフラットなスクエア型に折りたたむことが可能でございます。非常に軽量で、PCやA4書類も美しく収まります。</p>`,
+                en: `<p>The Puzzle Fold tote takes the iconic structural lines of the Puzzle family and reimagines them into a graphic, architectural tote. It can be folded completely flat with a simple gesture, making it the perfect lightweight, high-capacity companion for daily travel and business commuting.</p>`
+            },
+            'hammock-drawstring': {
+                sku: 'A538S35X29', launch: '2016SS / 2018改款', name: 'Hammock 经典抽绳手袋 (小号/百变吊床)', engname: 'Hammock Drawstring Bag in Classic Calfskin (Small)',
+                origin: '西班牙手工工坊', image: 'https://images.unsplash.com/photo-1566150905458-1bf1fc15a4a0?auto=format&fit=crop&w=500&q=80',
+                material: '经典小牛皮拼接柔软粒面皮。侧边拉绳展开部分采用极富弹性的软皮，确保包身在展开与收拢时展现出完全不同的垂坠感与线条。',
+                hardware: '两侧配有精致的圆环型皮革抽绳组件。包身侧面精细压印 Anagram 标志，手柄采用加厚双缝线，承重能力极强。',
+                history: '2016年发布初代拉链款，侧边用拉链调节。2018年全面改款为现在的“抽绳款（Drawstring）”，去除了冰冷的拉链，换成全皮抽绳，包身变得更加圆润、慵懒、具有南欧的松弛感。',
+                care: '由于经常需要变换造型和拉折侧边，折角处更容易积累灰尘。建议定期使用软毛刷清理折皱处。',
+                colors: [{ name: '棕褐色 (Tan)', hex: '#a05a2c' }, { name: '沙黄色 (Sand)', hex: '#c2b29c' }, { name: '牛油果绿 (Avocado)', hex: '#8f9779' }],
+                zh: `<p><b>【普通话】</b>您好，如果您看腻了规规矩矩的包，一定要试试这款 Hammock 吊床包。它是我们家著名的“百变金刚”，把两侧的抽绳拉开，它就像吊床一样瞬间变成一只大容量的托特包；把抽绳收紧，它就变成一只非常精致有建筑感的随身包。买这一只包等于同时拥有了水桶包、托特包和腋下包。</p>`,
+                ja: `<p><b>【変形の説明】</b>こちらはロエベのもう一つの代表作、「ハンモックバッグ」でございます。吊り下げ式的ハンモックから着想を得た非常にユニークなデザインで、ドローストリング（引き紐）を広げたり絞ったりすることで、シルエットを自在に変えられるのが最大の魅力でございます。オンオフ問わずコーディネートの主役として活躍いたします。</p>`,
+                en: `<p>Inspired by the relaxed silhouette of a tropical hammock, this bag is celebrated for its multi-functional design. Thanks to its flexible drawstring side panels, it can transform its shape effortlessly from a spacious north-south tote to a structured, elegant bucket bag.</p>`
+            },
+            'hammock-nugget': {
+                sku: 'A538H04X02', launch: '2022SS', name: 'Hammock Nugget 纳帕小牛皮块金包', engname: 'Hammock Nugget in Nappa Calfskin',
+                origin: '西班牙手工工坊', image: 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=500&q=80',
+                material: '采用奢华的纳帕小牛皮 (Nappa Calfskin)。皮质极其丝滑柔嫩，像婴儿皮肤一样的触感，是罗意威皮革工艺中的最高杰作之一。',
+                hardware: '去除了传统吊床包复杂的绳索或拉链，五金件几乎完全隐藏。包身顶部采用单手柄一体化弧度剪裁。',
+                history: '2022年为了追求极致的极简主义，Jonathan Anderson 在经典 Hammock 的基础上进行了大刀阔斧的“减法”，推出了 Nugget（金块包）。它保留了吊床包标志性的侧边变型结构，但将包身线条简化为一个优雅的流线弧形。',
+                care: '由于纳帕皮非常娇嫩，极其容易怕水和怕指甲刮划。不使用时必须塞入填充物以保持其优美的流线弧度。',
+                colors: [{ name: '纯净黑 (Black)', hex: '#1a1a1a' }, { name: '暖沙色 (Warm Desert)', hex: '#d2b48c' }],
+                zh: `<p><b>【普通话】</b>这款 Hammock Nugget 俗称“金块包”。它是吊床包家族里最年轻、最优雅的成员。它把原来复杂的拉链和抽绳全去掉了，变成了一体成型的流线型。用的是我们家最引以为傲的纳帕小牛皮，摸上去跟丝绸一样滑。单手拎着的时候那种自然的垂褶，特别像一件现代雕塑。</p>`,
+                ja: `<p><b>【洗練のデザイン】</b>2022年に登場した「ハンモック ナゲット」でございます。従来のハンモックの遊び心ある構造を受け継ぎながら、よりシンプルで美しい流線型のシルエットへと進化いたしました。最高峰のナッパカーフスキンを使用しており、シルクのように滑らかな手触りが特徴でございます。</p>`,
+                en: `<p>The Hammock Nugget reimagines the iconic Hammock design with clean, elegant lines and a simplified silhouette. Crafted from butter-soft Nappa calfskin, it untangles the original design\'s hardware, forming an organic, sculptural shape that drapes beautifully when held by its single top handle.</p>`
+            },
+            'flamenco-purse': {
+                sku: 'A411FC2X01', launch: '2024SS', name: 'Flamenco Purse 褶皱羊皮手袋 (配甜甜圈链条)', engname: 'Flamenco Purse in Mellow Calfskin',
+                origin: '西班牙手工工坊', image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=500&q=80',
+                material: '极其柔软的晶莹醇熟小牛皮 (Mellow Calfskin)，或者柔软纳帕羊皮。捏起来像一团柔软的云朵，拉拢时能形成完美的、极具戏剧张力的皮革褶皱。',
+                hardware: '配备 LOEWE 极具辨识度的金属“甜甜圈链条（Donut Chain）”，链条环环相扣，极具分量感，且带有手工彩色珐琅点缀。',
+                history: 'Flamenco 系列最早诞生于 1970 年代，2024 年春夏季创意总监对其进行了完全现代化的革新，推出了全新的 Flamenco Purse。增加了软皮管状手柄和标志性的甜甜圈金属链，直接让这个古老的家族变成了当红 IT Bag。',
+                care: '由于皮革极软且有大量起伏的褶皱，油边和褶皱凸起处更容易与衣服摩擦（尤其是深色牛仔裤），需注意防染色。',
+                colors: [{ name: '翡翠绿 (Emerald)', hex: '#0f5132' }, { name: '珍珠灰 (Pearl Grey)', hex: '#d1d5db' }, { name: '勃艮第紫 (Burgundy)', hex: '#4c1d95' }],
+                zh: `<p><b>【普通话】</b>您好，这是我们现在柜台上最难买到的 Flamenco Purse。Flamenco 俗称“福袋包”，它的灵感来自西班牙弗拉明戈舞者裙摆的褶皱。2024年全新改款后，配上了这条像珠宝一样的甜甜圈皮带链，既可以当腋下包，拉紧抽绳又是一个超级松弛的手拿包。它揉捏起来像云朵一样柔软，背上它特别有那种不费吹灰之力的高级感。</p>`,
+                ja: `<p><b>【トレンド提案】</b>こちらは現在のロエベで絶大な人気を誇る「フラメンコ パース」でございます。1970年代のアーカイブをモダンに再解釈し、美しい「ドーナツチェーン」を纏って生まれ変わりました。サイドのノット（結び目）を引くと、まるでフラメンコのドレスのような美しいギャザーが生まれ、クラッチやショルダーとしてマルチに活躍いたします。</p>`,
+                en: `<p>Reimagined for the 2024 collections, the Flamenco Purse is crafted from buttery, mellow leather that gathers beautifully when the drawstring is pulled. Highlighted by the sculptural metal Donut Chain with hand-enamelled details, it effortlessly bridges heritage craftsmanship with contemporary, effortless luxury.</p>`
+            },
+            'flamenco-clutch': {
+                sku: 'A411FC1X35', launch: '2020年复刻', name: 'Flamenco Clutch 经典手拿福袋包 (小号)', engname: 'Flamenco Clutch in Nappa Calfskin (Small)',
+                origin: '西班牙手工工坊', image: 'https://images.unsplash.com/photo-1600857062241-98e5dba7f214?auto=format&fit=crop&w=500&q=80',
+                material: '100% 顶级纳帕小牛皮 (Nappa Calfskin)。内部配有磁吸开合，内衬为全皮绒面革，奢华感由内而外。',
+                hardware: '极简设计。包身两侧标志性的“卷轴结（Flamenco Knot）”是唯一的装饰，完全依靠皮革自身的柔韧度来维持包型。',
+                history: '原始版本由 Loewe 于 1984 年推出，当时风靡全欧。2020年 Jonathan Anderson 将其重新带回秀场，去掉了多余的金属件，改用磁吸和更加利落的皮结，成为品牌的经典长青款。',
+                care: '皮质极薄极软，存放时绝对不能压重物。若表面有轻微指甲划痕，可用干净温热的手指腹轻轻打圈揉搓，皮质自带的油分能让轻微划痕慢慢变淡。',
+                colors: [{ name: '温暖沙色 (Warm Desert)', hex: '#d2b48c' }, { name: '极简黑 (Black)', hex: '#1a1a1a' }],
+                zh: `<p><b>【普通话】</b>这款是经典的 Flamenco 手拿包。它是我们家极简主义的代表，全包看不到任何多余的金属拉链。两侧的皮结是我们品牌传承了四十多年的经典标志。你可以把它夹在腋下当晚宴包，也可以装上肩带当日常的斜挎包，皮质是最好的纳帕小牛皮，摸上去就像皮肤一样细腻。</p>`,
+                ja: `<p><b>【永遠のクラシック】</b>1984年の誕生以来、愛され続けている「フラメンコ クラッチ」でございます。無駄な金具を一切省き、ロエベが誇る最高峰のナッパレザーの質感だけで勝負したバッグでございます。バッグの両サイドにあるシグネチャーのノット（結び目）が、さりげないブランドのアイデンティティを表現しております。</p>`,
+                en: `<p>The Flamenco Clutch, originally launched in 1984, remains a pure expression of LOEWE\'s leather mastery. Crafted from seamless Nappa calfskin and defined by its iconic coiled knots at the sides, this tactile clutch closes securely with a concealed magnetic fastening, offering an understated yet elevated look.</p>`
+            },
+            'gate-dual': {
+                sku: 'A650X88X05', launch: '2018AW', name: 'Gate Dual 经典皮革马鞍包 (小号)', engname: 'Gate Dual Bag in Soft Calfskin (Small)',
+                origin: '西班牙马德里工坊', image: 'https://images.unsplash.com/photo-1594223274512-ad4803739b7c?auto=format&fit=crop&w=500&q=80',
+                material: '柔软小牛皮 (Soft Calfskin)。皮质厚实硬挺，能够完美维持马鞍包独特的圆润半月廓形。内衬为高级麂皮绒。',
+                hardware: '侧边配有高规格的金属质感转轴别针（这也是 Gate 包名字的由来，像一扇铁门的转轴），正面为全手工打结的皮革绑带。',
+                history: '2018年秋冬发布后瞬间引爆全球。其灵感来源于传统的乡村马鞍包，但加入了极为前卫的正面皮革打结设计，兼具了复古与现代感。近年引入了带有“LOEWE”大Logo的提花宽肩带（Dual），使风格更加偏向高街和休闲。',
+                care: '由于正面有突出的皮革结，以及半盖式的开合结构，皮革结和包盖边缘在长期开合中容易产生磨损。开合时切勿暴力拉扯皮革扣带。',
+                colors: [{ name: '沙色/水貂色拼色 (Sand/Mink)', hex: '#c2b29c' }, { name: '红褐色 (Rust)', hex: '#b45309' }],
+                zh: `<p><b>【普通话】</b>您好，这款是极具文艺气质的 Gate 马鞍包。它最漂亮的标志就是正面这根纯手工打的皮革结，所有客人看到这个结就知道是 LOEWE。侧面这个金属别针就像一扇复古大门的转轴，特别精致。现在这个版本配的是我们家标志性的三语刺绣宽肩带，背上身特别休闲帅气，而且非常贴合身形，完全不压肩膀。</p>`,
+                ja: `<p><b>【タイムレスな魅力】</b>乗馬の鞍（サドル）から着想を得た、非常にタイムレスな「ゲートバッグ」でございます。フロントで手作業で結ばれたレザーストラップと、サイドに配されたメタリックなピンが洗練されたアクセントになっております。ロゴ入りのジャガード太ストラップが、程よい大人のカジュアル感を演出いたします。</p>`,
+                en: `<p>The Gate bag perfectly blends historical equestrian saddle design with modern attitude. Handcrafted from smooth, structured calfskin, it is defined by its metallic side pin and the distinctive knotted leather strap across the front flap. The jacquard-woven LOEWE strap provides maximum weight distribution and high-street appeal.</p>`
+            },
+            'rtw-leather': {
+                sku: 'S540Y19X01', launch: '每季经典常青', name: 'LOEWE 纳帕奢华机车皮衣 (成衣大类)', engname: 'Classic Biker Jacket in Nappa',
+                origin: '西班牙马德里成衣专门工坊', image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=500&q=80',
+                material: '100% 极其奢华的顶级纳帕羔羊皮 (Nappa Lambskin)。厚度仅为普通皮衣的一半，轻盈如第二层肌肤。内衬为真丝拼接提花织物。',
+                hardware: '定制大规格不锈钢重工业风拉链，拉链头全部采用阳极氧化防刻划处理，带盲压 Anagram 标志扣。',
+                history: 'LOEWE 诞生于 1846 年，最早就是靠给西班牙皇室制作奢华皮具和皮衣起家的。我们的成衣皮衣在整个奢侈品界属于天花板级别，不添加重度工业涂层，完全依靠皮革自身的油脂呈现出丝绸般的质感。',
+                care: '严禁干洗或水洗！若有脏污必须送回专柜交由全球总部指定的专业皮衣护理团队进行保养。不穿时必须使用宽肩衣架悬挂，不可折叠。',
+                colors: [{ name: '曜石黑 (Black)', hex: '#1a1a1a' }, { name: '浓缩咖啡棕 (Espresso)', hex: '#451a03' }],
+                zh: `<p><b>【普通话】</b>姐，买皮衣一定要看我们 LOEWE。我们品牌诞生了 180 年，最早就是做皇家皮衣起家的。您摸摸这个纳帕羔羊皮，它像丝绸一样软。普通的皮衣穿在身上很重、很硬，但我们这件上身没有任何束缚感，就像您的第二层皮肤。这个版型是经过亚洲人身材改良的，穿上肩线特别干练、特别显高贵。</p>`,
+                ja: `<p><b>【歴史と誇りのご提案】</b>ロエベは1846年にマドリードで創業し、スペイン王室御用達の高級レザーメゾンとして名を馳せてまいりました。その歴史の結晶とも言えるのがこちらのレザージャケットでございます。最高峰のナッパラムスキンを使用しており、まるでシルクを纏っているかのような軽さと柔らかさでございます。一生モノの家宝としてお持ちいただけるクオリティです。</p>`,
+                en: `<p>LOEWE\'s leather ready-to-wear represents the historical pinnacle of our 180-year heritage as a Spanish royal purveyor. Crafted from ultra-selected Nappa lambskin, this timeless biker jacket feels as light as silk and acts as a second skin. Its structured yet supple silhouette provides a flawless fit that matures beautifully with age.</p>`
+            },
+            'rtw-coat': {
+                sku: 'S359Y01X03', launch: '秋冬常青款', name: 'Anagram 双面纯羊绒手工长款大衣', engname: 'Belted Coat in Cashmere and Wool',
+                origin: '意大利成衣工坊', image: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=500&q=80',
+                material: '90% 顶级美利奴羊毛 + 10% 顶级阿尔巴斯白羊绒 (Cashmere)。采用双面织物（Double-face）工艺，没有内衬，两面均无瑕疵。',
+                hardware: '配有同皮质包裹的收腰皮带，以及内侧手工缝制的 Anagram 蚕丝标识。',
+                history: '罗意威的秋冬成衣一向主打“静奢风（Quiet Luxury）”。这款双面羊绒大衣完全由意大利资深工匠纯手工缝合边缘（每一件大衣需要上万针的手工隐形缝线），去除了坚硬的内衬和垫肩，追求极致的轻盈和保暖。',
+                care: '只能在专业高端干洗店进行特殊干洗。穿着后应用羊毛专用的软毛刷顺着毛流轻轻刷去灰尘，避免连续穿着引发局部起球。',
+                colors: [{ name: '驼色 (Camel)', hex: '#b45309' }, { name: '燕麦白 (Oatmeal)', hex: '#f3f4f6' }],
+                zh: `<p><b>【普通话】</b>这款双面羊绒大衣是我们每年秋冬的“断货王”。它用的是顶级美利奴羊毛拼阿尔巴斯羊绒，您看它没有内衬，因为它用的是奢华的双面编织工艺，正反面都一样精致。全身的边缘全都是意大利老工匠一针一针隐形缝进去的。它非常轻，穿在身上完全不压身子，但保暖度是普通大衣的三倍，穿个十年都不会过时。</p>`,
+                ja: `<p><b>【クワイエットラグジュアリー】</b>こちらは最高級のメリノウールとカシミアを贅沢に使用した「ダブルフェイス・コート」でございます。裏地を一切使わず、イタリアの職人が生地の端を内側に折り込んで一針一針手作業で縫製しているため、驚くほどの軽さと包み込まれるような暖かさを実現しております。袖口を少し捲った際に見える美しいカッティングが、洗練された大人の余裕を演出いたします。</p>`,
+                en: `<p>This double-faced wool-cashmere coat captures the essence of LOEWE\'s quiet luxury. Hand-stitched in Italy without lining or rigid padding, it utilizes seamless hidden stitching to create an incredibly lightweight yet insulating shield. The relaxed, belted silhouette drapes beautifully over any wardrobe, guaranteeing everlasting elegance.</p>`
+            },
+            'shoes-sneaker': {
+                sku: 'L815282X52', launch: '2020AW', name: 'Flow Runner 尼龙拼皮复古波鞋/运动鞋', engname: 'Flow Runner in Nylon and Suede',
+                origin: '意大利鞋履专门工坊', image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80',
+                material: '高级耐磨尼龙拼皇家小牛皮、麂皮 (Suede)。内里采用全粒面透气小牛皮垫，鞋底为特制的高弹力防滑橡胶底。',
+                hardware: '侧边由皮革拼接出极具辨识度的巨幅“L”字样（这也是 Flow 鞋款的灵魂），后跟延伸至鞋底处带有立体压印的 LOEWE 字母。',
+                history: '2020年一经推出便成为奢侈品运动鞋界的常青树。其灵感来自 1970 年代的复古田径跑步鞋，最大的特征是鞋底的波浪形橡胶“一直向上蔓延包裹住后跟（Flowing structure）”，因此得名 Flow Runner。',
+                care: '麂皮部分怕水，若弄脏千万不能用湿布擦。应等污渍干透后，用专门的麂皮生橡胶块顺着一个方向将污垢刮除。',
+                colors: [{ name: '复古白拼浅沙色 (White/Sand)', hex: '#f5f5f4' }, { name: '黑白撞色 (Black/White)', hex: '#1a1a1a' }],
+                zh: `<p><b>【普通话】</b>姐，如果您想买一双走路不累脚、还能偷偷增高拉长腿型的运动鞋，一定要试试我们的 Flow Runner。它是现在全直营店里回购率最高的一款。设计灵感来自70年代的复古跑鞋，侧边是一个大写的皮革‘L’。它最厉害的地方是后跟这个橡胶底，一直包裹到后面，穿上它特别跟脚，走两万步都不会磨脚，而且视觉上能让小腿线条显得非常修长。</p>`,
+                ja: `<p><b>【フットウェアの提案】</b>こちらはロエベのアイコンスニーカー「フローランナー」でございます。70年代のレトロなランニングシューズからインスパイアされており、波型のラバーソールがカカトまで美しく「流れるように（Flow）」巻き上がっているのが最大の特徴です。大変軽量でクッション性に優れており、一日中歩いても疲れにくく、脚長効果も抜群でございます。</p>`,
+                en: `<p>The Flow Runner combines retro 1970s track aesthetics with unmatched structural comfort. Crafted in Italy from a dynamic mix of nylon, calfskin, and suede, it is distinguished by its unique wave-patterned rubber sole that flows up and wraps around the heel. Lined with breathable, premium leather, it delivers a sculpted profile and everyday high-mileage comfort.</p>`
+            },
+            'acc-belt': {
+                sku: 'E619234X01', launch: '长青爆款', name: 'Anagram 4cm 经典经典针扣双面皮带', engname: 'Anagram Reversible Belt in Calfskin (4cm)',
+                origin: '西班牙纯手工工坊', image: 'https://images.unsplash.com/photo-1624222247344-550fb8be5521?auto=format&fit=crop&w=500&q=80',
+                material: '正面为经典小牛皮 (Classic Calfskin)，反面为柔软粒面皮 (Grained Calfskin)。一条皮带两面颜色完全不同（通常是黑拼棕或沙色拼黑），买一条等于拥有两条。',
+                hardware: '极其精致的 3D 立体 Anagram 镜面/拉丝金属扣头。扣头后方配有特制的隐藏式 360 度旋转拨针，不需任何工具，单手就能旋转切换正反面颜色。',
+                history: '作为奢侈品腰带界的四大天王之一，LOEWE 的 Anagram 皮带以“一腰带两用”和极其低调内敛的四合一徽标著称。4厘米的宽度是搭配牛仔裤、西装裤或大衣收腰的黄金尺寸。',
+                care: '经常受力的打孔处容易产生皮质松弛或微小裂纹。专柜提供免费的专业打孔服务，切勿自己使用工具盲目打孔，否则会破坏皮革内层的抗拉扯纤维。',
+                colors: [{ name: '黑色/棕褐色双面 (Black/Tan)', hex: '#1a1a1a' }, { name: '沙色/经典黑双面 (Sand/Black)', hex: '#c2b29c' }],
+                zh: `<p><b>【普通话】</b>这款 Anagram 双面皮带是我们店里的“配饰性价比之王”。它的五金就是我们最经典的四合一徽标，戴上身特别有辨识度但又不会觉得张扬。最棒的是它是双面不同颜色的，比如这一面是正装黑，翻过来就是休闲的焦糖色。您只需要轻轻把这个金属扣拧一下，就能无缝切换，买这一条等于配了两条，性价比非常高。</p>`,
+                ja: `<p><b>【ギフト・小物のご提案】</b>こちらは店頭でもギフトとして不動の人気を誇る「アナグラム・リバーシブルベルト」でございます。ロエベの伝統的な4つのLを組み合わせたバックルが、ウエストラインに上品な華やかさをプラスいたします。バックルを少し引っ張って回転させるだけで、黒とタン（茶）の2色を瞬時に切り替えられますので、ビジネスからカジュアルまでこれ一本で完璧に網羅いたします。</p>`,
+                en: `<p>The Anagram reversible belt offers ultimate versatility and serves as a classic finishing piece. Crafted in Spain from smooth classic calfskin on one side and texturized grained calfskin on the other, it features our iconic 3D Anagram buckle. A simple pull-and-twist mechanism allows seamless rotation, effectively offering two luxury belts in one.</p>`
             }
-            // 更多分类如 flamenco-purse、gate-dual 你可以在后续根据你店里的主推款让我帮你生成数据后填入
         };
 
         function showProduct(productId) {
             const product = database[productId];
             if (!product) return;
+
             document.getElementById('welcome-view').classList.add('hidden');
             document.getElementById('product-view').classList.remove('hidden');
+
             document.getElementById('p-sku').innerText = `SKU: ${product.sku}`;
             document.getElementById('p-launch').innerText = `首发: ${product.launch}`;
             document.getElementById('p-name').innerText = product.name;
+            document.getElementById('p-engname').innerText = product.engname;
+            document.getElementById('p-origin').innerText = product.origin;
             document.getElementById('p-image').src = product.image;
-            document.getElementById('p-material').innerText = product.material;
-            document.getElementById('p-hardware').innerText = product.hardware;
-            document.getElementById('p-care').innerText = product.care;
+            document.getElementById('p-material').innerHTML = product.material;
+            document.getElementById('p-hardware').innerHTML = product.hardware;
+            document.getElementById('p-history').innerHTML = product.history;
+            document.getElementById('p-care').innerHTML = product.care;
             document.getElementById('lang-zh').innerHTML = product.zh;
             document.getElementById('lang-ja').innerHTML = product.ja;
             document.getElementById('lang-en').innerHTML = product.en;
@@ -174,19 +357,26 @@
             colorContainer.innerHTML = '';
             product.colors.forEach(col => {
                 const card = document.createElement('div');
-                card.className = 'border border-stone-200 p-2 rounded bg-stone-50 flex items-center space-x-2';
+                card.className = 'border border-stone-200 p-2 rounded-lg bg-stone-50 flex items-center space-x-2 shadow-sm';
+                
                 const indicator = document.createElement('div');
-                indicator.className = 'w-3 h-3 rounded-full border shrink-0';
+                indicator.className = 'w-3.5 h-3.5 rounded-full border border-stone-300 shrink-0';
                 indicator.style.background = col.hex;
+
                 const nameLabel = document.createElement('span');
+                nameLabel.className = 'text-[11px] font-medium text-stone-700 truncate';
                 nameLabel.innerText = col.name;
+
                 card.appendChild(indicator);
                 card.appendChild(nameLabel);
                 colorContainer.appendChild(card);
             });
 
             document.querySelectorAll('aside button').forEach(btn => btn.classList.remove('active-link'));
-            document.getElementById('btn-' + productId).classList.add('active-link');
+            const activeBtn = document.getElementById('btn-' + productId);
+            if (activeBtn) activeBtn.classList.add('active-link');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
 </body>
